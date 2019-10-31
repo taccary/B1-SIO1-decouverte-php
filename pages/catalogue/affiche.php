@@ -3,22 +3,36 @@ include 'BDD/connectBdd.php'; //on se connecte à la base de donnée
 
 if (isset($_GET['possesseur'])) {
 	$possesseur = $_GET['possesseur'];
+	$SQL = "SELECT nomPossesseur FROM possesseur where idPossesseur = ".$possesseur;
+	$resultats = $connexion->query($SQL); // on execute notre requête
+	$resultats->setFetchMode(PDO::FETCH_OBJ);
+	$nomPossesseur = $resultats->fetchColumn(); //une seule ligne/colonne renvoyée, on peut utiliser fetchColumn() pour recuperer sa valeur
+	$resultats->closeCursor();
 	}
 else {
 	$possesseur = "%";
 }	
+
 if (isset($_GET['console'])) {
 	$console = $_GET['console'];
+	$SQL = "SELECT nomConsole FROM console where idConsole = ".$console;
+	$resultats=$connexion->query($SQL); // on execute notre requête
+	$resultats->setFetchMode(PDO::FETCH_OBJ);
+	$nomConsole = $resultats->fetchColumn();
+	$resultats->closeCursor();  
 	}
 else {
 	$console = "%";
 }	
 
+
 if ($menu == "console" && $console != "%") {
-	echo "<H3>les jeux de la console ".$console."</H3>";
+	// echo "<H3>les jeux de la console ".$nomConsole."</H3>";
+	echo "<H3>les jeux de la console ".$nomConsole."</H3>";
 }
 else if ($menu == "possesseur" && $possesseur != "%") {
-	echo "<H3>les jeux qui appartiennent à ".$possesseur."</H3>";
+	echo "<H3>les jeux qui appartiennent à ".$nomPossesseur."</H3>";
+	// echo "<H3>les jeux qui appartiennent à ".$possesseur."</H3>";
 }
 else {
 	echo "<H3>tous les jeux</H3>";
