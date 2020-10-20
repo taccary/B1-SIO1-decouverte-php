@@ -1,72 +1,54 @@
-﻿<?php
+﻿<H3>Affichage de tous les jeux</H3>
+
+<?php
 include 'BDD/connectBdd.php'; //on se connecte à la base de donnée
 
-if (isset($_GET['possesseur'])) {
-	$possesseur = $_GET['possesseur'];
-	$SQL = "SELECT nomPossesseur FROM possesseur where idPossesseur = ".$possesseur;
-	$resultats = $connexion->query($SQL); // on execute notre requête
-	$resultats->setFetchMode(PDO::FETCH_OBJ);
-	$nomPossesseur = $resultats->fetchColumn(); //une seule ligne/colonne renvoyée, on peut utiliser fetchColumn() pour recuperer sa valeur
-	$resultats->closeCursor();
+
+echo '<h4 id="liste">Liste des consoles</h4>';
+
+$SQL = "SELECT idConsole, nomConsole FROM console ORDER BY 2 ASC";
+$stmt = $connexion->prepare($SQL);
+$stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
+$consoles = $stmt->fetchAll(); // on met le resultat de la requete dans un tableau
+//var_dump($consoles); // on affiche le contenu de la variable $consoles (ici un tableau php array())
+
+echo '<ul>';
+foreach ($consoles as $console) {
+	echo 	'<a href="#'.$console['idConsole'].'"><li>'.$console['nomConsole'].'</li><a>';
+}
+echo '</ul>';
+
+echo '<h4>Liste des jeux</h4>';
+foreach ($consoles as $console) {
+	
+	$SQL = "SELECT * FROM jeu WHERE console = ? ORDER BY 1 ASC ";
+	$stmt = $connexion->prepare($SQL);
+	$stmt->execute(array($console['idConsole'])); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
+	$jeux = $stmt->fetchAll(); // on met le resultat de la requete dans un tableau
+	//var_dump($jeux); // on affiche le contenu de la variable $jeux (ici un tableau php array())
+	
+	if (count($jeux) == 0){
+		$nbJeux = "pas de jeux" ; // inutile, on peut remplacer le test pas une initialisation
 	}
-else {
-	$possesseur = "%";
-}	
-
-if (isset($_GET['console'])) {
-	$console = $_GET['console'];
-	$SQL = "SELECT nomConsole FROM console where idConsole = ".$console;
-	$resultats=$connexion->query($SQL); // on execute notre requête
-	$resultats->setFetchMode(PDO::FETCH_OBJ);
-	$nomConsole = $resultats->fetchColumn();
-	$resultats->closeCursor();  
+	else {
+		$nbJeux = count($jeux)." jeux";
+		if (count($jeux) == 1){
+			$nbJeux = "1 jeu";
+		}
 	}
-else {
-	$console = "%";
-}	
 
 
-if ($menu == "console" && $console != "%") {
-	// echo "<H3>les jeux de la console ".$nomConsole."</H3>";
-	echo "<H3>les jeux de la console ".$nomConsole."</H3>";
-}
-else if ($menu == "possesseur" && $possesseur != "%") {
-	echo "<H3>les jeux qui appartiennent à ".$nomPossesseur."</H3>";
-	// echo "<H3>les jeux qui appartiennent à ".$possesseur."</H3>";
-}
-else {
-	echo "<H3>tous les jeux</H3>";
+	echo '<span id="'.$console['idConsole'].'"><b>'.$console['nomConsole'].' ('.$nbJeux.') :</b><a href="#liste">up</a>';
+	echo '<ul>';
+	echo '';
+
+	foreach ($jeux as $jeu) {
+		echo 	'<li><a href="index.php?page=jeu&id='.$jeu['idJeu'].'">'.$jeu['nom'].' ('.$jeu['prixMoyen'].' euros)</a></li>';
+	}
+	echo '</ul>';
 }
 
-$SQL = "SELECT photo, nom, possesseur, console, prix, nbre_joueurs_max, commentaires FROM jeux_video where console like '".$console."' and possesseur like '".$possesseur."' ORDER BY 2 ASC";
 
-$resultats=$connexion->query($SQL); // on execute notre requête
-
-$resultats->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le résultat soit récupérable sous forme d'objet
-
-while( $ligne = $resultats->fetch() ) // on récupère la liste des resultats
-{
-	echo 	'<table id="affiche_resultat">
-			   <caption>'.$ligne->nom.'</caption> 
-			   <tbody> 
-			   <!-- Corps du tableau -->
-				   <tr>
-					   <td rowspan="3" class="photo"><img src="photo/'.$ligne->photo.'" alt="image du jeu '.$ligne->nom.'"/></td>
-					   <td>'.$ligne->console.'</td>
-					   <td>appartient à '.$ligne->possesseur.'</td>
-				   </tr>
-				   <tr>
-					   <td>'.$ligne->prix.' euros</td>
-					   <td>nb joueurs max : '.$ligne->nbre_joueurs_max.'</td>
-				   </tr>       
-				   <tr>
-					   <td colspan="2" class="commentaire">'.$ligne->commentaires.'</td>
-				   </tr>       
-			   </tbody>
-			</table>
-			<br/>';
-}
-
-$resultats->closeCursor(); // on ferme le curseur des résultats*/
+$stmt->closeCursor(); // on ferme le curseur des résultats
 ?>
 
