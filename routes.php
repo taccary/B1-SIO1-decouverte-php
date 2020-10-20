@@ -4,7 +4,7 @@
     $cheminPagesConfig = "config/"; 
     
     /* choix de la valeur de la variable $affiche en fonction de parametre page transmis */
-	if (!isset($_GET['page']) || ($_GET['page'] == "")) {
+	/*if (!isset($_GET['page']) || ($_GET['page'] == "")) {
 		$affiche = "mapage1.php";
 	} else if ($_GET['page'] == "test1") {
 		$affiche = "mapage1.php";
@@ -12,8 +12,38 @@
 		$affiche = "mapage2.php";
 	} else if ($_GET['page'] == "catalogue") {
 		$affiche = "catalogue.php";
-	} else {
+	} else if ($_GET['page'] == "catalogueTrie") {
+		$affiche = "catalogueTrie.php";
+	}
+	else if ($_GET['page'] == "catalogueTrie") {
+		$affiche = "catalogueTrie.php";
+	}
+	else {
 		$affiche = "lostinspace.php";
+	}*/
+
+	$affiche = "lostinspace.php";
+	switch (true) {
+		case (!isset($_GET['page']) || ($_GET['page'] == "")):
+			$affiche = "mapage1.php";
+			break;
+		case ($_GET['page'] == "test1"):
+			$affiche = "mapage1.php";
+			break;
+		case ($_GET['page'] == "test2"):
+			$affiche = "mapage2.php";
+			break;
+		case ($_GET['page'] == "catalogue"):
+			$affiche = "catalogue.php";
+			break;
+		case ($_GET['page'] == "catalogueTrie"):
+			$affiche = "catalogueTrie.php";
+			break;
+		case ($_GET['page'] == "jeu"):
+			$affiche = "catalogue/afficheJeu.php";
+			break;
+			
+		
 	}
 	/* Chargement page de config par défaut */
     include($cheminPagesConfig.'default-config.php');
