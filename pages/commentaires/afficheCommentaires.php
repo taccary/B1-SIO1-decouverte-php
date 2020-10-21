@@ -34,14 +34,14 @@ $avis = $stmt->fetchAll(); // on met le resultat de la requete dans un tableau √
 $resultats->closeCursor(); // on ferme le curseur des r√©sultats*/
 
 
-if ($menu == "jeu" && $jeu != "%") {
-	echo '<h1 class="entry-title">les commentaires du jeu ".$nomJeu."</H1>'; 
+if (($menu == "jeu") && ($jeu != "%")) {
+	echo '<h1 class="entry-title">les commentaires du jeu '.$nomJeu.'</h1>'; 
 }
 else if ($menu == "membre" && $membre != "%") {
-	echo '<h1 class="entry-title">>les commentaires de ".$nomMembre."</H1>'; 
+	echo '<h1 class="entry-title">les commentaires de '.$nomMembre.'</h1>'; 
 }
 else {
-	echo '<h1 class="entry-title">tous les commentaires</H1>';
+	echo '<h1 class="entry-title">tous les commentaires</h1>';
 }
 
 /* Ajouter l'affichage du nombre d'avis dans le <H3> */
