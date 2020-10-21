@@ -77,7 +77,7 @@ nav ul li a:hover{
 section{
 	text-indent: 30px; /* Les paragraphes commencent 30 pixels sur la droite */
 	text-align: justify; /* Ils sont justifi�s */
-	background:white;
+	background:lightblue;
 	flex : 1;
 	padding:15px;
 	overflow: auto;
