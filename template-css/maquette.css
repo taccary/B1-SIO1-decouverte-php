@@ -22,7 +22,7 @@ body{
 /* Définition du style du header */
 header{
 	border-bottom: solid 3px darkblue; 
-	background: white;
+	background: lightblue;
 }
 
 /* Spécialisation des éléments de classe "contenuDiv" qui se trouve dans le header */
@@ -88,7 +88,7 @@ section{
 /* Définition du style du DIV d'identifiant "pied_page" */
 footer{
 	height: 40px;
-	background:white;
+	background:lightblue;
 	text-align: center;
 }
 	 
