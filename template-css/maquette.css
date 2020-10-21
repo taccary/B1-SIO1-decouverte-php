@@ -1,0 +1,94 @@
+body{
+	background: url('fond-retro.png');
+	background-repeat: repeat;
+	margin:0;
+	padding:0;
+	font-family: Roboto;
+	font-style: normal;
+	visibility: visible;
+}
+.wrapper {
+    display: flex;
+	flex-direction: column;
+	/*justify-content : space-around;*/
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+ }
+
+/**********************************************************************/
+/* Définition du style du header */
+header{
+	border-bottom: solid 3px darkblue; 
+	background: white;
+}
+
+/* Spécialisation des éléments de classe "contenuDiv" qui se trouve dans le header */
+header.contenuDiv {
+	text-align: center;
+	font-size: 200%;
+	text-transform: uppercase;
+}
+
+/**********************************************************************/
+/* Définition du style du main                                        */
+main{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 1020px;
+	display: flex;
+	flex : 1;
+}
+
+/**********************************************************************/
+/* Définition du style du menu                                        */
+nav{
+	width: 180px;
+	text-transform: uppercase;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: inherit;
+}
+
+nav ul li a {
+	text-align: center;
+	margin: 10px;
+	padding: 5px;
+	border: 2px solid;
+	background-color:  #D3D3D3;
+	color: black;
+	display: block;
+	text-decoration: none;
+}
+
+nav ul li a:hover{
+	background-color: #6495ED;
+	border-color: #696969 #DCDCDC #DCDCDC #696969;
+}
+	
+/**********************************************************************/
+/* Définition du style du DIV d'identifiant "Contenu" */
+section{
+	text-indent: 30px; /* Les paragraphes commencent 30 pixels sur la droite */
+	text-align: justify; /* Ils sont justifi�s */
+	background:white;
+	flex : 1;
+	padding:15px;
+	overflow: auto;
+}
+
+
+/**********************************************************************/
+/* Définition du style du DIV d'identifiant "pied_page" */
+footer{
+	height: 40px;
+	background:white;
+	text-align: center;
+}
+	 

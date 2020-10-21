@@ -12,46 +12,36 @@
 	<meta name="robots" content="index,follow,all" />
 	<title><?php echo $title; ?></title>
 
-	<link rel="shortcut icon" href="skin/favicon.ico" />
-	<link rel="icon" href="skin/favicon_anime.gif" />
-	<link rel="stylesheet" href="skin/maquette.css" media="screen" />
-	<link rel="stylesheet" href="skin/maquetteCatalogue.css" media="screen" />
-	<!--<link rel="stylesheet" href="skin/maquette2.css" media="screen" />-->
+	<link rel="shortcut icon" href="template-css/favicon.ico" />
+	<link rel="icon" href="template-css/favicon_anime.gif" />
+	<link rel="stylesheet" href="template-css/maquette.css" media="screen" />
+	<link rel="stylesheet" href="template-css/maquetteCatalogue.css" media="screen" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- documentation de materiel icons : https://material.io/resources/icons -->
+
 	
 	<!-- <script src="script.js"></script> -->
 </head>
 
 <body>
-
-	<div id="Bandeau">
-		<div class="fondDiv"></div>
-		<div class="contenuDiv">
+	<div class="wrapper">
+		<header class="contenuDiv">
 			<?php include('bandeau.php'); ?>
-		</div>
-	</div>
-		
-	<div id="Centre">
-		<div id="Menu">
-			<div class="fondDiv"></div>
-			<div class="contenuDiv">
+		</header>
+			
+		<main>
+			<nav>
 				<?php include('menu.php'); ?>
-			</div>
-		</div>
-		
-		<div id="Contenu">
-			<div class="fondDiv"></div>
-			<div class="contenuDiv">
+			</nav>
+			
+			<section>
 				<?php include($affiche); ?>
-			</div>
-		</div>	
+			</section>	
+		</main>
+		
+		<footer>
+			<?php include('pied_page.php'); ?>
+		</footer>
 	</div>
-	
-	<div id="Pied_page">
-			<div class="fondDiv"></div>
-			<div class="contenuDiv">
-				<?php include('pied_page.php'); ?>
-			</div>
-	</div>
-
 </body>
 </html>
