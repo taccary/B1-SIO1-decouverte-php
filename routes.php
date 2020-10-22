@@ -6,24 +6,29 @@
     /* choix de la valeur de la variable $affiche en fonction de parametre page transmis */
 	$affiche = "lostinspace.php";
 
-
-
-	switch ($_GET['page']) {
-		case (!isset($_GET['page']) || ($_GET['page'] == "")):
-			$affiche = "presentation.php";
-			break;
-		case ("agenda"):
-			$affiche = "calendrier.php";
-			break;
-		case ("accueil"):
-			$affiche = "presentation.php";
-			break;
-		case ("catalogue"):
-			$affiche = "catalogue.php";
-			break;
-		case ("commentaires"):
-			$affiche = "commentaires.php";
-			break;		
+	if (!isset($_GET['page'])){
+		$affiche = "presentation.php";
+	} 
+	else {
+		switch ($_GET['page']) {
+			case (""):
+				$affiche = "presentation.php";
+				break;
+			case ("agenda"):
+				$affiche = "calendrier.php";
+				break;
+			case ("accueil"):
+				$affiche = "presentation.php";
+				break;
+			case ("catalogue"):
+				$affiche = "catalogue.php";
+				break;
+			case ("commentaires"):
+				$affiche = "commentaires.php";
+				break;
+			default:
+				$affiche = "lostinspace.php";
+		}			
 	}
 
 
