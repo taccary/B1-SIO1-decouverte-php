@@ -1,6 +1,5 @@
 <?php
 	/* Détermination du nom de la page à charger après vérification de sa validité */
-	include 'BDD/connectBdd.php'; //on se connecte à la base de donnée
 	if (isset($_GET['menu'])) {
 		$menu = $_GET['menu'];
 	}

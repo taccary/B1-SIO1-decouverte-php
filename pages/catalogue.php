@@ -1,8 +1,6 @@
 <div id="contenu_catalogue">
 
-	<?php 
-		include 'BDD/connectBdd.php'; //on se connecte à la base de donnée
-		
+	<?php 		
 		if (isset($_GET['idjeu'])) {
 			$SQL = "SELECT * FROM jeu WHERE idJeu = ? ";
 			$stmt = $connexion->prepare($SQL);

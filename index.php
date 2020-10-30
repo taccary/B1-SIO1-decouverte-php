@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="fr">
 <?php
-	include('routes.php');
+	include_once('BDD/connectBdd.php'); // on inclut le fichier de connexion à la base de donnée
+	include('routes.php'); // on inclut le routeur
 ?>
 
 
@@ -25,7 +26,7 @@
 
 <body>
 	<div class="wrapper">
-		<header class="contenuDiv">
+		<header class="bandeau">
 			<?php include('bandeau.php'); ?>
 		</header>
 			

@@ -10,7 +10,6 @@ body{
 .wrapper {
     display: flex;
 	flex-direction: column;
-	/*justify-content : space-around;*/
 	position:absolute;
 	top:0;
 	left:0;
@@ -22,14 +21,24 @@ body{
 /* Définition du style du header */
 header{
 	border-bottom: solid 3px darkblue; 
-	background: lightblue;
+	/*background: lightblue;*/
+
 }
 
-/* Spécialisation des éléments de classe "contenuDiv" qui se trouve dans le header */
-header.contenuDiv {
+/* Définition du style du bandeau */
+.bandeau {
 	text-align: center;
-	font-size: 200%;
+	
+	background-image: url("bandeau-light.png");
+	background-size: contain;k;
+
+}
+
+.bandeau >h1 {
 	text-transform: uppercase;
+	color: darkblue;
+	text-shadow: 2px 2px 5px rgb(192, 255, 255);
+	font-size: 200%;
 }
 
 /**********************************************************************/

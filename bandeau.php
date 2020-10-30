@@ -1,3 +1,2 @@
-Site exemple de squelette avec une BDD mySQL (AP SIO1)
-<br/>
-Gestion basique de jeux retro
+<h1>Gestion basique de jeux rétros</h1>
+<span>exemple de squelette avec une BDD mySQL (AP SIO1)</span>
