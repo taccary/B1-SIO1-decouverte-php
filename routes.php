@@ -20,8 +20,8 @@
 			case ("accueil"):
 				$affiche = "presentation.php";
 				break;
-			case ("catalogue"):
-				$affiche = "catalogue.php";
+			case ("jeux"):
+				$affiche = "jeux.php";
 				break;
 			case ("commentaires"):
 				$affiche = "commentaires.php";

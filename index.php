@@ -16,7 +16,7 @@
 	<link rel="shortcut icon" href="template-css/favicon.ico" />
 	<link rel="icon" href="template-css/favicon_anime.gif" />
 	<link rel="stylesheet" href="template-css/maquette.css" media="screen" />
-	<link rel="stylesheet" href="template-css/maquetteCatalogue.css" media="screen" />
+	<link rel="stylesheet" href="template-css/maquetteJeux.css" media="screen" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<!-- documentation de materiel icons : https://material.io/resources/icons -->
 
