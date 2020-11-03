@@ -1,3 +1,13 @@
+<?php
+/* code préparé pour passer l'affichage des billets en dynamique */
+    $SQL = " "; // requete à trouver
+    $stmt = $connexion->prepare($SQL);
+    $stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
+    $evenements = $stmt->fetchAll(); // on met le resultat de la requete dans un tableau
+    //var_dump($evenements); // on affiche le contenu de la variable $evenements (ici un tableau php array())
+    $stmt->closeCursor(); // on ferme le curseur des résultats
+?>
+
 <header>
     <h1 class="entry-title" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop='title'>Agenda rétrogaming et jeux vidéo</span></h1>
     <h2 style="border-bottom:0px;font-size:18px;text-transform:inherit;margin-top:10px;font-weight:700;line-height:25px;color:#000;">Manifestations, festivals, conférences, soirées geek et esport...</h2>

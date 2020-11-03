@@ -29,7 +29,7 @@
 
 /**********************************************************************/
 /* Définition du style du DIV d'identifiant "contenu" */
-#contenu_catalogue{
+#contenu_jeux{
 	/*height: 100%;
 	width: 1020px;
 	background-color: aquamarine;*/
@@ -46,7 +46,7 @@
 
 /**********************************************************************/
 /* Définition du style du DIV d'identifiant "Contenu" */
-#texte_catalogue{
+#texte_jeux{
 	width:600px;
 	/*height: 400px;*/
 	float:right;
