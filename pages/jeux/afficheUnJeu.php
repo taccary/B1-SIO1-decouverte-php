@@ -41,6 +41,6 @@
 	</tbody>
 </table>
 
-<h4>Commentaires de ce jeu (xx<!-- ajouter le code pour afficher le nombre de commentaires pour ce jeu en utilisaant la fonction count() du langage php sur le tableau $commentaires (voir sa documentation sur internet)-->)	</h4>
+<h4>Commentaires de ce jeu (xx<!-- ajouter le code pour afficher le nombre de commentaires pour ce jeu en utilisant la fonction count() du langage php sur le tableau $commentaires (voir sa documentation sur internet) -->)	</h4>
 
-<!-- ajouter le code pour afficher les commentaires pour ce jeu sous forme de blocs -->	
+<!-- ajouter le code pour afficher les commentaires pour ce jeu sous forme d'une liste à puces alimentées par une boucle -->	
