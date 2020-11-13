@@ -28,7 +28,7 @@
 		<tr>
 			<td rowspan="2" class="photo">
 				<!-- si le jeu n'a pas d'image, afficher "Aucune image disponible pour ce jeu" -->
-				<img src="pages/jeuxs/photos/<?= $jeu['photo'] ?>" alt="image du jeu <?= $jeu['nom'] ?>"/>
+				<img src="pages/jeux/photos/<?= $jeu['photo'] ?>" alt="image du jeu <?= $jeu['nom'] ?>"/>
 			</td>
 			<td colspan="2">
 				<?= $jeu['console'] ?> <!-- afficher le nom de la console et pas son numéro -->
