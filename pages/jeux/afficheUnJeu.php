@@ -4,7 +4,7 @@
 	$SQL = "SELECT * FROM jeu JOIN console ON jeu.console = console.idConsole WHERE idJeu = ? ";
 	$stmt = $connexion->prepare($SQL);
 	$stmt->execute(array($idJeu)); // on passe dans le tableaux les paramètres si il y en a à fournir (ici l'identifiant du jeu)
-	$jeu = $stmt->fetch(); // on met le resultat de la requete dans un tableau
+	$jeu = $stmt->fetch(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau
 	//var_dump($jeu); // on affiche le contenu de la variable $jeu (ici un tableau php array())
 	$stmt->closeCursor(); // on ferme le curseur des résultats*/
 
@@ -12,7 +12,7 @@
 	$SQL = ""; // ecrire la requete qui va chercher les commentaires du jeu affiché
 	$stmt = $connexion->prepare($SQL);
 	$stmt->execute(array($idJeu)); // on passe dans le tableaux les paramètres si il y en a à fournir (ici l'identifiant du jeu)
-	$commentaires = $stmt->fetchall(); // on met le resultat de la requete dans un tableau
+	$commentaires = $stmt->fetchall(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau
 	//var_dump($commentaires); // on affiche le contenu de la variable $jeu (ici un tableau php array())
 	$stmt->closeCursor(); // on ferme le curseur des résultats*/
 
