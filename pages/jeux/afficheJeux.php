@@ -58,7 +58,7 @@
 
 		echo '<ul>';
 		foreach ($jeux as $jeu) {
-			var_dump($jeu);
+			//var_dump($jeu);
 			echo '<li><a href="index.php?page=jeux&idjeu='.$jeu['idJeu'].'">'.$jeu['nom'].' ('.$jeu['prixMoyen'].' euros)</a></li>';
 		}
 		echo '</ul>';
