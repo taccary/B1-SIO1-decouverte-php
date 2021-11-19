@@ -3,7 +3,7 @@
     $SQL = " "; // requete à trouver
     $stmt = $connexion->prepare($SQL);
     $stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
-    $evenements = $stmt->fetchAll(); // on met le resultat de la requete dans un tableau
+    $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau
     //var_dump($evenements); // on affiche le contenu de la variable $evenements (ici un tableau php array())
     $stmt->closeCursor(); // on ferme le curseur des résultats
 ?>

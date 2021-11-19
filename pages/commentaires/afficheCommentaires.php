@@ -27,7 +27,7 @@ else {
 $SQL = "SELECT * FROM avis NATURAL JOIN jeu NATURAL JOIN membre where idJeu like ? and idMembre like ? ORDER BY date";
 $stmt = $connexion->prepare($SQL);
 $stmt->execute(array($jeu, $membre)); // on passe dans le tableaux les paramètres si il y en a à fournir
-$avis = $stmt->fetchAll(); // on met le resultat de la requete dans un tableau à 2 dimensions
+$avis = $stmt->fetchAll(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau à 2 dimensions
 
 $resultats->closeCursor(); // on ferme le curseur des résultats*/
 

@@ -5,7 +5,7 @@
 	$SQL = "SELECT idConsole, nomConsole FROM console ORDER BY 2 ASC";
 	$stmt = $connexion->prepare($SQL);
 	$stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
-	$consoles = $stmt->fetchAll(); // on met le resultat de la requete dans un tableau à 2 dimensions
+	$consoles = $stmt->fetchAll(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau à 2 dimensions
 	//var_dump($consoles); // on affiche le contenu de la variable $consoles (ici un tableau php array())
 	$stmt->closeCursor(); // on ferme le curseur des résultats
 ?>
@@ -40,8 +40,8 @@
 		$SQL = "SELECT * FROM jeu WHERE console = ? ORDER BY 1 ASC ";
 		$stmt = $connexion->prepare($SQL);
 		$stmt->execute(array($idConsole)); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun le numero de console)
-		$jeux = $stmt->fetchAll(); // on met le resultat de la requete dans un tableau
-		//var_dump($jeux); // on affiche le contenu de la variable $jeux (ici un tableau php array())
+		$jeux = $stmt->fetchAll(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau
+		// var_dump($jeux); // on affiche le contenu de la variable $jeux (ici un tableau php array())
 		$stmt->closeCursor(); // on ferme le curseur des résultats
 
 		if (count($jeux) == 0){
@@ -58,6 +58,7 @@
 
 		echo '<ul>';
 		foreach ($jeux as $jeu) {
+			var_dump($jeu);
 			echo '<li><a href="index.php?page=jeux&idjeu='.$jeu['idJeu'].'">'.$jeu['nom'].' ('.$jeu['prixMoyen'].' euros)</a></li>';
 		}
 		echo '</ul>';
