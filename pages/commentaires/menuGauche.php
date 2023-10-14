@@ -11,24 +11,40 @@
 
 	
 	if ($menu == "jeu") {
+		// Définir la requête SQL pour récupérer tous les jeux dans la table jeu par ordre alphabétique
+		$SQL = "SELECT * FROM jeu ORDER BY 2 ASC"; 
+		// Préparer la requête en utilisant la connexion à la base de données
+		$stmt = $connexion->prepare($SQL);
+		// Exécuter la requête
+		$stmt->execute();
+		// Récupérer tous les résultats de la requête sous forme d'un tableau d'objets (donc plusieurs objets)
+		$lesJeux = $stmt->fetchAll(PDO::FETCH_OBJ); 
+		// Fermer le curseur des résultats pour libérer les ressources
+		$stmt->closeCursor();
 		
-		$resultats=$connexion->query("SELECT * FROM jeu ORDER BY 2 ASC"); // on va chercher tous les possesseurs dans la table jeux_video (résultat trié par ordre croissant)
-		$resultats->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le résultat soit récupérable sous forme d'objet
-		while( $ligne = $resultats->fetch() ) // on récupère la liste des membres
+		// tant qu'on arrive pas à la fin du tableau $lesJeux, on charge l'objet courant dans $unJeu
+		foreach($lesJeux as $unJeu) 
 		{
-			echo '<a href="?page=commentaires&menu='.$menu.'&jeu='.$ligne->idJeu.'" >'.$ligne->nom.'</a><br/>'; // on affiche les jeux sous forme de liens
+			echo '<a href="?page=commentaires&menu='.$menu.'&jeu='.$unJeu->idJeu.'" >'.$unJeu->nom.'</a><br/>'; // on affiche les jeux sous forme de liens en passant l'identifiant du jeu et le nom du jeu dans l'URL
 		}
-		$resultats->closeCursor(); // on ferme le curseur des résultats
 	}
 	else {
-		$resultats=$connexion->query("SELECT * FROM membre ORDER BY 2 ASC"); // on va chercher tous les possesseurs dans la table jeux_video (résultat trié par ordre croissant)
-		$resultats->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le résultat soit récupérable sous forme d'objet
-		while( $ligne = $resultats->fetch() ) // on récupère la liste des membres
+		// Définir la requête SQL pour récupérer tous les membres dans la table membre par ordre alphabétique
+		$SQL = "SELECT * FROM membre ORDER BY 2 ASC"; 
+		// Préparer la requête en utilisant la connexion à la base de données
+		$stmt = $connexion->prepare($SQL);
+		// Exécuter la requête
+		$stmt->execute();
+		// Récupérer tous les résultats de la requête sous forme d'un tableau d'objets (donc plusieurs objets)
+		$lesMembres = $stmt->fetchAll(PDO::FETCH_OBJ); 
+		// Fermer le curseur des résultats pour libérer les ressources
+		$stmt->closeCursor();
+
+		// tant qu'on arrive pas à la fin du tableau $lesMembres, on charge l'objet courant dans $unMembre
+		foreach($lesMembres as $unMembre) 
 		{
-			echo '<a href="?page=commentaires&menu='.$menu.'&membre='.$ligne->idMembre.'" >'.$ligne->nomMembre.'</a><br/>'; // on affiche les membres sous forme de liens
+			echo '<a href="?page=commentaires&menu='.$menu.'&membre='.$unMembre->idMembre.'" >'.$unMembre->nomMembre.'</a><br/>'; // on affiche les membres sous forme de liens
 		}
-		$resultats->closeCursor(); // on ferme le curseur des résultats
-		
 	}
 	
 	

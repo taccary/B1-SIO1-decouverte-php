@@ -1,7 +1,9 @@
 <?php
-$PARAM_hote='localhost'; // le chemin vers le serveur
-$PARAM_port='3306'; // le port de votre service mysql
-$PARAM_nom_bd='base-test-jeu-evolution'; // le nom de votre base de données
-$PARAM_utilisateur='root'; // nom d'utilisateur pour se connecter
-$PARAM_mot_passe=''; // mot de passe de l'utilisateur pour se connecter
+/**
+ * Fichier de configuration de la base de données
+ */
+    $_ENV["username"] = "retrogaming-web"; // utilisateur de la base de données
+    $_ENV["password"] = "p@ssw0rd"; // mot de passe de l'utilisateur de la base de données
+    $_ENV["dsn"] = "mysql:host=localhost;dbname=retrogaming;port=3306"; // data source name
+    $_ENV["options"] = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'') // option pour le driver PDO : UTF8 pour gérer les accents
 ?>

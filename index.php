@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="fr">
 <?php
-	include_once('BDD/connectBdd.php'); // on inclut le fichier de connexion à la base de donnée
-	include('routes.php'); // on inclut le routeur
-?>
+	/* on inclut le fichier de connexion à la base de données */
+	include_once('BDD/connectBdd.php'); 
 
+	/* on inclut le routeur */
+	include('routes.php'); 
+?>
 
 <head>
  	<meta charset="utf-8" />

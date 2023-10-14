@@ -1,12 +1,28 @@
 <?php
 /* code préparé pour passer l'affichage des billets en dynamique */
-    $SQL = " "; // requete à trouver
+    // date de début et date de fin pour la requete SQL
+    $date_debut = '2021-01-01';
+    $date_fin = '2021-12-31';
+
+    // Définir la requête SQL pour récupérer tous les événements entre les deux dates (incluses)
+    $SQL = "SELECT * FROM calendrier WHERE dateDebut >= :date_debut AND dateFin <= :date_fin"; // requete à trouver pour afficher les événements entre les deux dates
+    
+    // Préparer la requête en utilisant la connexion à la base de données
     $stmt = $connexion->prepare($SQL);
-    $stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
-    $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau
-    //var_dump($evenements); // on affiche le contenu de la variable $evenements (ici un tableau php array())
-    $stmt->closeCursor(); // on ferme le curseur des résultats
-?>
+    
+    // Définir les valeurs des paramètres en utilisant bindValue
+    $stmt->bindValue(':date_debut', $date_debut, PDO::PARAM_STR);
+    $stmt->bindValue(':date_fin', $date_fin, PDO::PARAM_STR);
+    
+    // Exécuter la requête
+    $stmt->execute();
+    
+    // Récupérer tous les résultats de la requête dans un tableau associatif
+    $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    // Fermer le curseur des résultats pour libérer les ressources
+    $stmt->closeCursor();
+    ?>
 
 <header>
     <h1 class="entry-title" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop='title'>Agenda rétrogaming et jeux vidéo</span></h1>

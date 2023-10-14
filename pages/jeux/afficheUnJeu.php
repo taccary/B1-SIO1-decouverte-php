@@ -1,21 +1,51 @@
-﻿﻿<?php
-	$idJeu = $_GET['idjeu']; // on stocke l'ientifiant du jeu transmis dans la barre d'adresse
-	
-	$SQL = "SELECT * FROM jeu JOIN console ON jeu.console = console.idConsole WHERE idJeu = ? ";
-	$stmt = $connexion->prepare($SQL);
-	$stmt->execute(array($idJeu)); // on passe dans le tableaux les paramètres si il y en a à fournir (ici l'identifiant du jeu)
-	$jeu = $stmt->fetch(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau
-	//var_dump($jeu); // on affiche le contenu de la variable $jeu (ici un tableau php array())
-	$stmt->closeCursor(); // on ferme le curseur des résultats*/
+﻿﻿<!-- bloc de requete pour recupérer les informations du jeu et de la console associée depuis la base de données dans un tableau associatif $jeu -->
+<?php
+	// Récupérer l'identifiant du jeu transmis dans la barre d'adresse
+	$idJeu = $_GET['idjeu'];
 
-	
-	$SQL = ""; // ecrire la requete qui va chercher les commentaires du jeu affiché
-	$stmt = $connexion->prepare($SQL);
-	$stmt->execute(array($idJeu)); // on passe dans le tableaux les paramètres si il y en a à fournir (ici l'identifiant du jeu)
-	$commentaires = $stmt->fetchall(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau
-	//var_dump($commentaires); // on affiche le contenu de la variable $jeu (ici un tableau php array())
-	$stmt->closeCursor(); // on ferme le curseur des résultats*/
+	// Définir la requête SQL pour récupérer les informations du jeu et de la console associée à partir de son identifiant (idJeu)
+	$SQL = "SELECT * FROM jeu JOIN console ON jeu.console = console.idConsole WHERE idJeu = :unIdJeu";
 
+	// Préparer la requête en utilisant la connexion à la base de données
+	$stmt = $connexion->prepare($SQL);
+
+	// Définir le paramètre de la requête SQL avec l'identifiant du jeu
+	$stmt->bindValue(":unIdJeu", $idJeu, PDO::PARAM_INT);
+
+	// Exécuter la requête
+	$stmt->execute();
+
+	// Récupérer les résultats de la requête dans un tableau associatif
+	$jeu = $stmt->fetch(PDO::FETCH_ASSOC);
+
+	// Fermer le curseur des résultats pour libérer les ressources
+	$stmt->closeCursor();
+?>	
+
+<!-- bloc de requete pour recupérer les commentaires du jeu depuis la base de données dans un tableau associatif $commentaires -->
+<?php	
+	// Définir la requête SQL pour récupérer les commentaires du jeu
+	$SQL = "SELECT * FROM avis WHERE idJeu = :unIdJeu";
+
+	// Préparer la requête en utilisant la connexion à la base de données
+	$stmt = $connexion->prepare($SQL);
+
+	// Définir le paramètre de la requête SQL avec l'identifiant du jeu
+	$stmt->bindValue(":unIdJeu", $idJeu, PDO::PARAM_INT);
+
+	// Exécuter la requête en passant l'identifiant du jeu comme paramètre
+	$stmt->execute();
+
+	// Récupérer tous les résultats de la requête dans un tableau associatif
+	$commentaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	// Fermer le curseur des résultats pour libérer les ressources
+	$stmt->closeCursor();
+?>
+<!-- bloc d'affichage en mode console des variables contenant les informations du jeu et de la console associée -->
+<?php
+	//var_dump($jeu);
+	//var_dump($commentaires);
 ?>
 
 <a href="index.php?page=jeux">Retourner au catalogue</a>
@@ -28,7 +58,7 @@
 		<tr>
 			<td rowspan="2" class="photo">
 				<!-- si le jeu n'a pas d'image, afficher "Aucune image disponible pour ce jeu" -->
-				<img src="pages/jeuxs/photos/<?= $jeu['photo'] ?>" alt="image du jeu <?= $jeu['nom'] ?>"/>
+				<img src="pages/jeux/photos/<?= $jeu['photo'] ?>" alt="image du jeu <?= $jeu['nom'] ?>"/>
 			</td>
 			<td colspan="2">
 				<?= $jeu['console'] ?> <!-- afficher le nom de la console et pas son numéro -->
