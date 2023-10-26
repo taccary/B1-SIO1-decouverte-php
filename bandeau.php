@@ -1,2 +1,2 @@
-<h1>Gestion basique de jeux rétros</h1>
-<span>exemple de squelette avec une BDD mySQL (AP SIO1)</span>
+<h1>RetroGame'In  (Gestion basique de jeux rétros)</h1>
+<p>Voyagez dans le temps avec les jeux rétro!</p>

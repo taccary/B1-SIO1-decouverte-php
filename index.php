@@ -8,43 +8,75 @@
 	include('routes.php'); 
 ?>
 
-<head>
- 	<meta charset="utf-8" />
-	<meta name="keywords" content="<?php echo $keywords; ?>" />
-	<meta name="description" content="<?php echo $description; ?>" />
-	<meta name="robots" content="index,follow,all" />
-	<title><?php echo $title; ?></title>
+	<head>
+		<!-- Balises meta -->
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<meta name="author" content="Retro-Gaming" />
+			<meta name="language" content="fr">
+			<meta name="revisit-after" content="7 days">
+			<meta name="robots" content="index,follow,all" />
+			<meta name="keywords" content="<?php echo $keywords; ?>" />
+			<meta name="description" content="<?php echo $description; ?>" />
+		<!-- fin balises meta -->
 
-	<link rel="shortcut icon" href="template-css/favicon.ico" />
-	<link rel="icon" href="template-css/favicon_anime.gif" />
-	<link rel="stylesheet" href="template-css/maquette.css" media="screen" />
-	<link rel="stylesheet" href="template-css/maquetteJeux.css" media="screen" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<!-- documentation de materiel icons : https://material.io/resources/icons -->
+		<!-- Balise title -->
+			<title><?php echo $title; ?></title>
+		<!-- fin balise title -->
 
-	
-	<!-- <script src="script.js"></script> -->
-</head>
+		<!-- Déclaration des favicons -->
+			<link rel="shortcut icon" href="template-css/favicon.svg" />
+		<!-- fin déclaration des favicons -->
 
-<body>
-	<div class="wrapper">
-		<header class="bandeau">
-			<?php include('bandeau.php'); ?>
-		</header>
+		<!-- feuilles de style, favicon et scripts js -->
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+			<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+			<!-- documentation de materiel icons : https://developers.google.com/fonts/docs/material_symbols?hl=fr -->
+
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&display=swap" rel="stylesheet"> 
 			
-		<main>
-			<nav>
-				<?php include('menu.php'); ?>
+			<link rel="stylesheet" href="template-css/style.css" media="screen" />
+		<!-- fin feuilles de style, favicon et scripts js -->
+
+	</head>
+
+	<body>
+
+		<!-- Bandeau en haut -->
+		<header class="bg-dark text-dark p-4 bandeau-container sticky-top">
+			<div class="banner">
+				<?php include('bandeau.php'); ?>
+			</div>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-fluid">
+					<?php include('menu.php'); ?>
+				</div>
 			</nav>
-			
+		</header>
+		<!-- fin bandeau en haut -->
+
+
+		<div class="container">
+			<!-- Contenu principal -->
 			<section>
 				<?php include($affiche); ?>
 			</section>	
-		</main>
-		
-		<footer>
-			<?php include('pied_page.php'); ?>
+			<!-- fin contenu principal -->
+		</div>
+	
+		<!-- Pied de page -->
+		<footer class="bg-dark text-light p-2 fixed-bottom" style="opacity: 0.8;">
+			<div class="d-flex flex-column flex-sm-row justify-content-between  border-top">
+				<?php include('pied_page.php'); ?>
+			</div>
 		</footer>
-	</div>
-</body>
+		
+		<!-- fin pied de page -->
+	</body>
 </html>

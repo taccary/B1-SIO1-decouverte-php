@@ -1,8 +1,27 @@
 ﻿<header>
 	<h1 class="entry-title" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">Le retrogaming et les retrogamers</span></h1>
 	<h2 style="border-bottom:0px;font-size:18px;text-transform:inherit;margin-top:10px;font-weight:700;line-height:25px;color:#000;">le retrogaming est l'art de jouer aux anciens jeux vidéo... mais pas que !</h2>
-	<p style="margin-top:-18px;font-weight:400;line-height:25px;">A travers une pratique de loisir, le retrogaming est devenu un art de vivre qui brasse toutes les cultures. Développeurs, constructeurs et passionnés ne cessent de rendre hommage à cette façon antique de faire des jeux vidéo. Passéistes ? peut être pas !</p>
+	<p>A travers une pratique de loisir, le retrogaming est devenu un art de vivre qui brasse toutes les cultures. <br/>
+	Développeurs, constructeurs et passionnés ne cessent de rendre hommage à cette façon antique de faire des jeux vidéo. <br/>Passéistes ? peut être pas !</p>
 </header>
+
+<div class="card mb-3 article" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="https://www.rom-game.fr/multimedia/newsM8/201015_monkeyisland.jpg" class="card-img" alt="Monkey Island - des souris et du rhum">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Monkey Island - des souris et du rhum</h5>
+		<p class="card-text"><small class="text-muted"><strong> Jeux indés - Homebrew - Néo Rétro</strong> Jeudi 15 octobre 2020</time></small></p>
+        <p class="card-text">
+			A l'occasion du trentième anniversaire de notre vieil ami Guybrush Threepwood, une foultitude de jeux et de vidéos ont fleuri sur le web. Armé de notre seule souris - et d'une bouteille de rhum - découvrons ensemble ces initiatives enthousiasmantes. (...) 
+		</p>
+		<a href="https://www.rom-game.fr/news/4204-Monkey+Island+-+des+souris+et+du+rhum.html" target="_blank" class="btn btn-primary">En savoir plus...</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="cat-layout clearfix">
 	<div class="row clearfix">

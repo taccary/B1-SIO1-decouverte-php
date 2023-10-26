@@ -3,7 +3,7 @@
 	
 
 	$SQL = "SELECT idConsole, nomConsole FROM console ORDER BY 2 ASC";
-	$stmt = $connexion->prepare($SQL);
+	$stmt = $connexion->($SQL);
 	$stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
 	$consoles = $stmt->fetchAll(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau à 2 dimensions
 	//var_dump($consoles); // on affiche le contenu de la variable $consoles (ici un tableau php array())
@@ -31,15 +31,17 @@
 <?php
 	if ((isset($_POST['console'])) && ($_POST['console'] != "")) {
 		$idConsole = $_POST['console'];
-		$SQL = "SELECT nomConsole FROM console WHERE idConsole = ? ";
+		$SQL = "SELECT nomConsole FROM console WHERE idConsole = :id ";
 		$stmt = $connexion->prepare($SQL);
-		$stmt->execute(array($idConsole)); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
+		$stmt->bindValue(":id", $idConsole, PDO::PARAM_INT); // on passe dans le tableaux les paramètres si il y en a à fournir (ici le numero de console)
+		$stmt->execute(); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
 		$console = $stmt->fetch(); // on met le resultat de la requete dans un tableau 
 		$stmt->closeCursor(); // on ferme le curseur des résultats
 
-		$SQL = "SELECT * FROM jeu WHERE console = ? ORDER BY 1 ASC ";
+		$SQL = "SELECT * FROM jeu WHERE console = :id ORDER BY 1 ASC ";
 		$stmt = $connexion->prepare($SQL);
-		$stmt->execute(array($idConsole)); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun le numero de console)
+		$stmt->bindValue(":id", $idConsole, PDO::PARAM_INT); // on passe dans le tableaux les paramètres si il y en a à fournir (ici le numero de console)
+		$stmt->execute(); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun le numero de console)
 		$jeux = $stmt->fetchAll(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau
 		// var_dump($jeux); // on affiche le contenu de la variable $jeux (ici un tableau php array())
 		$stmt->closeCursor(); // on ferme le curseur des résultats
@@ -54,7 +56,7 @@
 			}
 		}
 
-		echo '<h4>Liste des jeux '.$console['nomConsole'].'('.$nbJeux.')</h4>';
+		echo '<h4>Liste des jeux '.$console['nomConsole'].' ('.$nbJeux.')</h4>';
 
 		echo '<ul>';
 		foreach ($jeux as $jeu) {
@@ -62,6 +64,23 @@
 			echo '<li><a href="index.php?page=jeux&idjeu='.$jeu['idJeu'].'">'.$jeu['nom'].' ('.$jeu['prixMoyen'].' euros)</a></li>';
 		}
 		echo '</ul>';
+
+
+
+		// echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
+		// foreach ($jeux as $jeu) {
+		// 	echo '<div class="col">';
+		// 	echo '<div class="card h-100" style="width: 18rem;">';
+		// 	echo '<img src="pages/jeux/photos/'.$jeu['photo'].'" alt="image du jeu '. $jeu['nom'] .'" class="card-img-top" />';
+		// 	echo '<div class="card-body"><a href="index.php?page=jeux&idjeu='.$jeu['idJeu'].'">';
+		// 	echo '<h5 class="card-title">'.$jeu['nom'].'</h5>';
+		// 	echo '<p class="card-text">'.$jeu['nom'].' ('.$jeu['prixMoyen'].' euros)</a></p>';
+		// 	echo '</a></div>';
+		// 	echo '</div>';
+		// 	echo '</div>';
+		// }
+		// echo '</div>';
+
 	} else {
 		echo '<h4>veuillez selectionner une console</h4>';
 	}
