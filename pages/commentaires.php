@@ -1,6 +1,6 @@
 <div id="contenu_jeux">
 	<div id="menu_gauche_commentaires">
-		<?php include('commentaires/menuGauche.php'); ?>
+		<?php include('commentaires/menuCommentaires.php'); ?>
 	</div>
 	
 	<div id="texte_jeux">

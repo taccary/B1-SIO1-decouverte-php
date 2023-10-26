@@ -3,27 +3,31 @@
 	
 
 	$SQL = "SELECT idConsole, nomConsole FROM console ORDER BY 2 ASC";
-	$stmt = $connexion->($SQL);
+	$stmt = $connexion->prepare($SQL);
 	$stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
 	$consoles = $stmt->fetchAll(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau à 2 dimensions
 	//var_dump($consoles); // on affiche le contenu de la variable $consoles (ici un tableau php array())
 	$stmt->closeCursor(); // on ferme le curseur des résultats
 ?>
 
-<form method="post" action="index.php?page=jeux">
-	<select name="console">
-		<option value="">--sélectionner une console--</option>
-			<?php
-			foreach ($consoles as $console) {
-				$selected = "";
-				if ((isset($_POST['console'])) && ($_POST['console']==$console['idConsole'])) {
-					$selected = "selected";
+<form method="post" action="index.php?page=jeux" class="row g-3">
+	<div class="col-md-8">
+		<select name="console" class="form-select">
+			<option value="">--sélectionner une console--</option>
+				<?php
+				foreach ($consoles as $console) {
+					$selected = "";
+					if ((isset($_POST['console'])) && ($_POST['console']==$console['idConsole'])) {
+						$selected = "selected";
+					}
+					echo '<option value="'.$console['idConsole'].'" '.$selected.'>'.$console['nomConsole'].'</option>';
 				}
-				echo '<option value="'.$console['idConsole'].'" '.$selected.'>'.$console['nomConsole'].'</option>';
-			}
-			?>
-	</select>
-	<input type="submit" value="Charger les jeux" title="Charger les jeux" />
+				?>
+		</select>
+	</div>
+	<div class="col-md-4">
+		<button class="btn btn-primary" type="submit">Charger les jeux</button>
+	</div>
 </form>
 
 

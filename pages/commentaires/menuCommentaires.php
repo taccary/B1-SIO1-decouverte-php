@@ -22,7 +22,7 @@
 		// Fermer le curseur des résultats pour libérer les ressources
 		$stmt->closeCursor();
 		
-		echo '<select name="jeu" onchange="location = this.value;">';
+		echo '<select name="jeu" class="form-select" onchange="location = this.value;">';
 		// tant qu'on arrive pas à la fin du tableau $lesJeux, on charge l'objet courant dans $unJeu
 		foreach($lesJeux as $unJeu) { 
 			$selected = "";
@@ -46,7 +46,7 @@
 		// Fermer le curseur des résultats pour libérer les ressources
 		$stmt->closeCursor();
 
-		echo '<select name="membre" onchange="location = this.value;">';
+		echo '<select name="membre" class="form-select" onchange="location = this.value;">';
 		// tant qu'on arrive pas à la fin du tableau $lesMembres, on charge l'objet courant dans $unMembre
 		foreach($lesMembres as $unMembre) { 
 			$selected = "";
