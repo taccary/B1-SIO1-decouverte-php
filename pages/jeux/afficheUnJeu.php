@@ -16,7 +16,7 @@
 	$stmt->execute();
 
 	// Récupérer les résultats de la requête dans un tableau associatif
-	$jeu = $stmt->fetch(PDO::FETCH_ASSOC);
+	$leJeu = $stmt->fetch(PDO::FETCH_ASSOC);
 
 	// Fermer le curseur des résultats pour libérer les ressources
 	$stmt->closeCursor();
@@ -37,40 +37,50 @@
 	$stmt->execute();
 
 	// Récupérer tous les résultats de la requête dans un tableau associatif
-	$commentaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	$lesCommentaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	// Fermer le curseur des résultats pour libérer les ressources
 	$stmt->closeCursor();
 ?>
+
 <!-- bloc d'affichage en mode console des variables contenant les informations du jeu et de la console associée -->
 <?php
-	//var_dump($jeu);
-	//var_dump($commentaires);
+	//var_dump($leJeu); // afficher le contenu de la variable $leJeu (ici un tableau php array())
+	//var_dump($lesCommentaires); // afficher le contenu de la variable $lesCommentaires (ici un tableau php array())
 ?>
 
-<a href="index.php?page=jeux">Retourner au catalogue</a>
 
-<h1 class="entry-title">Fiche du jeu <?= $jeu['nom'] ?></H3>
 
-<table id="affiche_resultat">
-	<!-- Corps du tableau -->
-	<tbody> 
-		<tr>
-			<td rowspan="2" class="photo">
-				<!-- si le jeu n'a pas d'image, afficher "Aucune image disponible pour ce jeu" -->
-				<img src="pages/jeux/photos/<?= $jeu['photo'] ?>" alt="image du jeu <?= $jeu['nom'] ?>"/>
-			</td>
-			<td colspan="2">
-				<?= $jeu['console'] ?> <!-- afficher le nom de la console et pas son numéro -->
-			</td>
-		</tr>
-		<tr>
-			<td><?= $jeu['prixMoyen'] ?> euros</td>
-			<td>nb joueurs max : <?= $jeu['nbJoueursMax'] ?></td>
-		</tr>       
-	</tbody>
-</table>
+<a href="index.php?page=games">Retourner au catalogue</a>
 
-<h4>Commentaires de ce jeu (xx<!-- ajouter le code pour afficher le nombre de commentaires pour ce jeu en utilisant la fonction count() du langage php sur le tableau $commentaires (voir sa documentation sur internet) -->)	</h4>
+<div class="card mb-3 shadow">
+    <div class="row g-0">
+        <div class="col-md-4">
+			<!-- Si le jeu n’a pas d’image, afficher l'image pages/jeux/photos/imageNotFound.png avec un texte "pas d’image pour ce jeu" -->
+            <img src="pages/jeux/photos/<?= $leJeu['photoJeu'] ?>" class="img-fluid rounded-start" alt="image du jeu <?= $leJeu['nom'] ?>">
+        </div>
+        <div class="col-md-5">
+            <div class="card-body">
+				<h5 class="card-title"><?= $leJeu['nom'] ?></h5>
+				<p class="card-text"><?= $leJeu['descriptionJeu'] ?></p>
+            </div>
+        </div>
+		<div class="col-md-3">
+            <div class="card-body">
+                <p class="card-text">Console : <?= $leJeu['console'] ?></p> <!-- afficher le nom de la console au lieu de son identifiant -->
+                <p class="card-text">Prix moyen : <?= $leJeu['prixMoyen'] ?> euros</p>
+                <p class="card-text">Nb joueurs max : <?= $leJeu['nbJoueursMax'] ?></p>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+		<!-- Si le jeu n’a aucun commentaire, afficher "aucun avis pour l’instant" et sinon, afficher le nombre de commentaires pour ce jeu en utilisant la fonction count() du langage php sur le tableau $commentaires (voir sa documentation sur internet) -->
+        <h4>xx commentaires pour ce jeu</h4>
 
-<!-- ajouter le code pour afficher les commentaires pour ce jeu sous forme d'une liste à puces alimentées par une boucle -->	
+        <ul class="list-group list-group-flush">
+            <?php foreach ($lesCommentaires as $unCommentaire) : ?>
+                <li class="list-group-item"><!-- ajouter le code pour afficher chaque commentaire sous la forme d'une puce -->	<?php var_dump($unCommentaire); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>

@@ -52,16 +52,16 @@
 			</div>
 			<nav class="navbar navbar-expand-lg">
 				<div class="container-fluid">
-					<?php include('menus.php'); /* commentez le code */?>
+					<?php include('menu.php'); /* commentez le code */?>
 				</div>
 			</nav>
 		</header>
 		<!-- fin bandeau en haut -->
 
 
-		<div class="container h-100">
+		<div class="container">
 			<!-- Contenu principal -->
-			<section>
+			<section>	
 				<?php include($affiche); /* commentez le code */?>
 			</section>	
 			<!-- fin contenu principal -->

@@ -32,12 +32,12 @@ DROP TABLE IF EXISTS `calendrier`;
 CREATE TABLE IF NOT EXISTS `calendrier` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(100) NOT NULL,
-  `lien` varchar(100) NOT NULL,
+  `lien` varchar(200) NOT NULL,
   `lieu` varchar(100) NOT NULL,
   `dateDebut` date NOT NULL,
   `dateFin` date NOT NULL,
   `description` text NOT NULL,
-  `photo` varchar(100) NOT NULL,
+  `photo` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 COMMIT;

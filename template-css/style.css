@@ -12,21 +12,44 @@ body{
 /* Définition du style du bandeau */
 .bandeau-container h1 {
 	text-transform: uppercase;
-	color: white;
-	text-shadow: 2px 2px 5px darkolivegreen;
+	color: gold;
+	text-shadow: 2px 2px 5px rgb(45, 20, 116);
 	font-size: 200%;
 	font-family: 'Pixelify Sans', sans-serif;
   }
   
   .bandeau-container p {
-	color: darkblue;
-	background-color: rgba(255, 255, 255, 0.5);
+	color: brown;
+	font-weight: bold;
+	background-color: rgba(255, 255, 255, 0.7);
+	text-shadow: 2px 2px 5px lightskyblue;
   }
 
 .bandeau-container {
 	background-image: url("bandeau.png");
 	background-size: contain;
 	text-align: center;
+}
+
+.container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.container h2 {
+    font-size: 1.3em;
+    color: #3b3939;
+    margin-bottom: 0.5em;
+    font-weight: normal;
+}
+
+.container p {
+	font-size: 1em;
+	margin-bottom: 0.5em;
+	font-weight: normal;
 }
 
 /**********************************************************************/
@@ -97,7 +120,7 @@ nav{
 section{
 	padding: 10px;
 	text-align: justify; 
-	background-color: rgba(255, 255, 255, 0.9);
+	background-color: rgba(240, 206, 206, 0.9);
 }
 
 .article{

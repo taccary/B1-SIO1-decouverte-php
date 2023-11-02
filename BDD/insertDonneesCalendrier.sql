@@ -1,12 +1,4 @@
 --
--- modif structure de la table `calendrier`
---
-
-ALTER TABLE `calendrier` CHANGE `lien` `lien` VARCHAR(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
-
-ALTER TABLE `calendrier` CHANGE `photo` `photo` VARCHAR(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
-
---
 -- Contenu de la table `calendrier`
 --
 

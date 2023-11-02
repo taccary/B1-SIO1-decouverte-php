@@ -7,28 +7,29 @@
 	$config = "config-default.php"; // nom du fichier de configuration par défaut
 
     /* choix de la valeur de la variable $affiche en fonction de parametre page transmis */
-	if (!isset($_GET['page']) || $_GET['page'] == "" || $_GET['page'] == "accueil"){
-		/* Si aucun paramètre page n'est passé dans l'URL ou si sa valeur est vide ou égale à accueil, on charge la page d'accueil et sa page de configuration */
+	if (!isset($_GET['page']) || $_GET['page'] == "" || $_GET['page'] == "home"){
+		/* commentez le code */
 		$affiche = "presentation.php";
 		$config = "config-presentation.php";
 	} 
 	else {
 		switch ($_GET['page']) {
-			case ("agenda"):
-				/* Si le paramètre page est égal à agenda, on charge la page agenda et sa page de configuration */
+			case ("events"):
+				/* commentez le code */
 				$affiche = "calendrier.php";
 				$config = "config-calendrier.php";
 				break;
-			case ("jeux"):
-				/* Si le paramètre page est égal à jeux, on charge la page catalogue */
+			case ("games"):
+				/* commentez le code */
 				$affiche = "catalogue.php";
 				break;
-			case ("commentaires"):
-				/* Si le paramètre page est égal à commentaires, on charge la page commentaires */
+			case ("comments"):
+				/* commentez le code */
 				$affiche = "commentaires.php";
 				break;
+
 			default:
-				/* Si un paramètre page est passé dans l'URL mais qu'il ne correspond à aucune valeur attendue dans ce switch, on charge la page d'erreur */
+				/* commentez le code */
 				$affiche = "lostinspace.php";
 				$config = "config-lostinspace.php";
 		}			
@@ -39,4 +40,6 @@
     /* concatenation du chemin du dossier contenant les pages avec le contenu de $affiche */
     $affiche = $cheminPagesAffiche . $affiche;     
 
+	/* inclusion du fichier de configuration */
+	include($config);
 ?>
