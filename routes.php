@@ -20,8 +20,8 @@
 				$config = "config-calendrier.php";
 				break;
 			case ("jeux"):
-				/* Si le paramètre page est égal à jeux, on charge la page jeux */
-				$affiche = "jeux.php";
+				/* Si le paramètre page est égal à jeux, on charge la page catalogue */
+				$affiche = "catalogue.php";
 				break;
 			case ("commentaires"):
 				/* Si le paramètre page est égal à commentaires, on charge la page commentaires */
@@ -37,10 +37,6 @@
 	/* concaténation du chemin du dossier contenant les fichiers de configuration avec le contenu de $config */
 	$config = $cheminPagesConfig . $config;
     /* concatenation du chemin du dossier contenant les pages avec le contenu de $affiche */
-    $affiche = $cheminPagesAffiche . $affiche; 
-
-	/* inclusion des fichiers de configuration de la page si ils existent (l'arobas permet de ne pas afficher d'erreur si le fichier de configuration de la page n'existe pas) */
-	@include($config);
-    
+    $affiche = $cheminPagesAffiche . $affiche;     
 
 ?>
