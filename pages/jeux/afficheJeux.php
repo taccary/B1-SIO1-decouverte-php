@@ -80,7 +80,7 @@
 
 			echo '<ul>';
 			foreach ($lesJeux as $unJeu) {
-				echo '<li><a href="index.php?page=games&idjeu='.$unJeu['idJeu'].'">'.$unJeu['nom'].' ('.$unJeu['prixMoyen'].' euros)</a></li>';
+				echo '<li><a href="index.php?page=games&idjeu='.$unJeu['idJeu'].'">'.$unJeu['nom'].'</a> ('.$unJeu['prixMoyen'].' euros)</li>';
 			}
 			echo '</ul>';
 
