@@ -1,4 +1,10 @@
 --
+-- Base de données :  `retrogamein`
+--
+
+USE retrogamein;
+
+--
 -- Contenu de la table `calendrier`
 --
 
