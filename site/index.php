@@ -48,11 +48,11 @@
 		<!-- Bandeau en haut -->
 		<header class="bg-dark text-dark p-4 bandeau-container sticky-top">
 			<div class="banner">
-				<?php include('bandeau.php'); /* commentez le code */?>
+				<?php include('bandeau.inc.php'); /* commentez le code */?>
 			</div>
 			<nav class="navbar navbar-expand-lg">
 				<div class="container-fluid">
-					<?php include('menu.php'); /* commentez le code */?>
+					<?php include('menu.inc.php'); /* commentez le code */?>
 				</div>
 			</nav>
 		</header>
@@ -70,7 +70,7 @@
 		<!-- Pied de page -->
 		<footer class="bg-dark text-light p-2 fixed-bottom" style="opacity: 0.8;">
 			<div class="d-flex flex-column flex-sm-row justify-content-between  border-top">
-				<?php include('pied_page.php'); /* commentez le code */?>
+				<?php include('pied_page.inc.php'); /* commentez le code */?>
 			</div>
 		</footer>
 		
