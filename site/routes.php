@@ -1,23 +1,26 @@
 <?php
-	/* Détermination des chemins d'accès aux fichiers de configuration et d'affichage des pages */
-	$cheminPagesAffiche = "pages/"; 
-    $cheminPagesConfig = "config/"; 
     
-	/* Initialisation des variables $affiche et $config */
-	$config = "config-default.php"; // nom du fichier de configuration par défaut
+	// définition de valeurs par défaut pour les variables $title, $keywords et $description qui seront utilisées pour les métadonnées dans le fichier index.php
+	$title = "Titre à définir"; //Titre par défaut
+	$keywords = ""; // mots clés par défaut
+	$description = ""; // description par défaut
 
     /* choix de la valeur de la variable $affiche en fonction de parametre page transmis */
 	if (!isset($_GET['page']) || $_GET['page'] == "" || $_GET['page'] == "home"){
 		/* commentez le code */
 		$affiche = "presentation.php";
-		$config = "config-presentation.php";
+		$title = "Notre association";
+		$keywords = "présentation, association, gaming, retro";
+		$description = "Page d'accueil et de présentation de notre association";
 	} 
 	else {
 		switch ($_GET['page']) {
 			case ("events"):
 				/* commentez le code */
 				$affiche = "calendrier.php";
-				$config = "config-calendrier.php";
+				$title = "Agenda des Manifestations Retro-Gaming et Jeux à Venir"; 
+				$keywords = "Retro-Gaming, Jeux rétro, Manifestations à venir, Agenda, Événements gaming, Calendrier des jeux, Conventions gaming"; 
+				$description = "Découvrez les prochaines manifestations et événements passionnants dans le monde du jeu et du retro-gaming. Restez à jour avec notre agenda complet."; 
 				break;
 			case ("games"):
 				/* commentez le code */
@@ -31,15 +34,16 @@
 			default:
 				/* commentez le code */
 				$affiche = "lostinspace.php";
-				$config = "config-lostinspace.php";
+				$title = "Vous êtes perdus !!";
+				$keywords = "404";
+				$description = "page d'atterissage pour les requêtes vers des pages inexistantes";
 		}			
 	}
 
-	/* concaténation du chemin du dossier contenant les fichiers de configuration avec le contenu de $config */
-	$config = $cheminPagesConfig . $config;
-    /* concatenation du chemin du dossier contenant les pages avec le contenu de $affiche */
+	/* Détermination des chemins d'accès aux fichiers de configuration et d'affichage des pages */
+	$cheminPagesAffiche = "pagesDynamiques/"; 
+
+    /* concatenation du chemin du dossier contenant les pages dynamiques avec le contenu de $affiche à l'issue du traitement au dessus */
     $affiche = $cheminPagesAffiche . $affiche;     
 
-	/* inclusion du fichier de configuration */
-	include($config);
 ?>
