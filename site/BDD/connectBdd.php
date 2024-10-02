@@ -1,5 +1,5 @@
 <?php
-include 'configBdd.php'; // inclusion du fichier de paramètres
+include 'infoBDD.inc.php'; // inclusion du fichier de paramètres de connexion à la BDD
 try
         {
                 $connexion = new PDO($_ENV["dsn"], $_ENV["username"], $_ENV["password"], $_ENV["options"]);
