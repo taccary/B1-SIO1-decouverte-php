@@ -22,9 +22,9 @@ SET time_zone = "+00:00";
 --
 DROP DATABASE IF EXISTS retrogamein;
 CREATE DATABASE IF NOT EXISTS retrogamein DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-DROP USER IF EXISTS "retrogamein-web"@"localhost";
-CREATE USER "retrogamein-web"@"localhost" IDENTIFIED BY "p@ssw0rd";
-GRANT SELECT ON retrogamein.* TO "retrogamein-web"@"localhost";
+DROP USER IF EXISTS "retrogamein-web"@"%";
+CREATE USER "retrogamein-web"@"%" IDENTIFIED BY "p@ssw0rd";
+GRANT SELECT ON retrogamein.* TO "retrogamein-web"@"%";
 
 USE retrogamein;
 
