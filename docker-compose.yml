@@ -12,15 +12,15 @@ services:
         - 8000:80
   
   db:
-    container_name: db-mdl
+    container_name: db
     image: mysql:latest
     environment: #infos d'initialisation de la BDD
         MYSQL_ROOT_PASSWORD: root
-        MYSQL_DATABASE: bdd-test
         MYSQL_USER: user
         MYSQL_PASSWORD: mdp
         MYSQL_TCP_PORT: 3306
     volumes:
+        - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql # changer le script init.sql présent dans le dossier database pour donner les droits admin à l'utilisateur user
         - ./database:/docker-entrypoint-initdb.d # mettre dans le dossier database le script init.db pour initialiser la bdd
         - ./database/db_data:/var/lib/mysql # mettre dans le dossier database/db_data les fichiers de la BDD pour garder les évolutions
     ports:
