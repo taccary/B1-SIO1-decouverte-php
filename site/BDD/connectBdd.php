@@ -11,4 +11,8 @@ catch(Exception $e)
                 echo 'Une erreur de connexion à la BDD est survenue !';
                 die();
         }
+
+
+// Configuration de la locale pour le formatage des dates en français avec strftime dans la page calendrier.php
+setlocale(LC_TIME, 'fr_FR.UTF-8');
 ?>

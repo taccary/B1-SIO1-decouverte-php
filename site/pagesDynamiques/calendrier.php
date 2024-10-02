@@ -3,6 +3,13 @@
     // date de début et date de fin pour la requete SQL
     $date_debut = '2021-01-01';
     $date_fin = '2021-12-31';
+	// Créer des objets DateTime
+	$dateDebutObj = new DateTime($date_debut);
+	$dateFinObj = new DateTime($date_fin);
+	// Formater les dates selon le fuseau horaire du serveur
+	$formattedDateDebut = $dateDebutObj->format('Y-m-d H:i:s');
+	$formattedDateFin = $dateFinObj->format('Y-m-d H:i:s');
+
 
     // En utilisant les éléments de code des requetes préparées de la page afficheUnJeu.php, écrire le code pour afficher les événements à venir entre le 1er janvier 2021 et le 31 décembre 2021
 
@@ -18,13 +25,6 @@
     
     // Fermer le curseur des résultats pour libérer les ressources
 
-
-    /* formatage des dates en français */
-	$fmt = new IntlDateFormatter(
-		'fr_FR',
-		IntlDateFormatter::FULL,
-		IntlDateFormatter::NONE
-	);
 ?>
 
 <header>
