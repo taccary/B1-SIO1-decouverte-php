@@ -16,7 +16,7 @@ services:
     image: mysql:latest
     environment: #infos d'initialisation de la BDD
         MYSQL_ROOT_PASSWORD: root
-        MYSQL_USER: user
+        MYSQL_USER: admin
         MYSQL_PASSWORD: mdp
         MYSQL_TCP_PORT: 3306
     volumes:
