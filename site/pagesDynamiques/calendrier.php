@@ -13,17 +13,24 @@
 
     // En utilisant les éléments de code des requetes préparées de la page afficheUnJeu.php, écrire le code pour afficher les événements à venir entre le 1er janvier 2021 et le 31 décembre 2021
 
-    $SQL = ""; // requête à trouver pour afficher les événements entre les deux dates
+    $SQL = "SELECT * FROM calendrier WHERE dateDebut >= :date_debut AND dateFin <= :date_fin ORDER BY dateDebut ASC"; // requête à trouver pour afficher les événements entre les deux dates
    
     // Préparer la requête en utilisant la connexion à la base de données
-    
+	$req = $connexion->prepare($SQL);
+
     // Définir les valeurs des paramètres en utilisant bindValue
+	$req->bindValue(':date_debut', $formattedDateDebut, PDO::PARAM_STR);
+	$req->bindValue(':date_fin', $formattedDateFin, PDO::PARAM_STR);
     
     // Exécuter la requête
+	$req->execute();
     
     // Récupérer tous les résultats de la requête dans un tableau associatif $lesEvenements
+	$lesEvenements = $req->fetchAll(PDO::FETCH_ASSOC);
     
     // Fermer le curseur des résultats pour libérer les ressources
+	$req->closeCursor();
+	var_dump($lesEvenements);
 
 ?>
 

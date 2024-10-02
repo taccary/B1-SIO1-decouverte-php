@@ -1,5 +1,4 @@
 <?php
-    
 	// définition de valeurs par défaut pour les variables $title, $keywords et $description qui seront utilisées pour les métadonnées dans le fichier index.php
 	$title = "Titre à définir"; //Titre par défaut
 	$keywords = ""; // mots clés par défaut

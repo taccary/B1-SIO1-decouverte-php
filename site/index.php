@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <?php
-	include_once('BDD/connectBdd.php'); // on inclut le fichier de connexion à la base de données
+	include_once('BDD/driverConnexionBDD.php'); // on inclut le fichier de connexion à la base de données
 	include('routes.php');  // on inclut le fichier de routage des pages
 ?>
 
