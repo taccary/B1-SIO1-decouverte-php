@@ -34,18 +34,33 @@ Pour toute assistance supplémentaire, consultez la documentation appropriée po
    ```sh
    git --version
 4. **Configurer votre nom d'utilisateur et votre adresse e-mail :**
-Dans le terminal de VSCode, tapez les commandes suivantes (avec les valeurs correspondant à votre compte github)
+   Dans le terminal de VSCode, tapez les commandes suivantes (avec les valeurs correspondant à votre compte github)
    ```sh
    git config --global user.name "Votre Nom"
    git config --global user.email "votre.email@example.com"
 
 #### Clonage du dépot
-1. Depuis VSCode, clonez votre dépot Github dans le dossier web de votre LAMP (classiquement `html` ou `www`). 
-3. Importez le script `database/retrogamein.sql` dans votre SGBD MySQL local. Ce script crée la base de données, l'utilisateur du driver, les tables et importe les données nécessaires.
-4. Dans VSCode : 
-  1. Adaptez la valeur du serveur MySQL auquel on effectue la connexion dans la variable `$_ENV["host"]` du fichier `site/BDD/infosConnexionBDD.inc.php`. Sur un serveur local, elle est classiquement à "localhost".
-  2. Adaptez la valeur du port d'écoute de votre serveur MySQL dans la variable `$_ENV["port"]` du fichier `site/BDD/infosConnexionBDD.inc.php`.
-  3. Adaptez la valeur de la base de données utilisée sur votre serveur MySQL dans la variable `$_ENV["dbname"]` du fichier `site/BDD/infosConnexionBDD.inc.php`.
-  4. Installez les extensions recommandées pour ce projet en allant dans le menu "extensions" et tapant `@recommended`
-5. Pensez à faire régulièrement des Commit et Push (voir consignes en cours)
+   Depuis VSCode, clonez votre dépot Github dans le dossier web de votre LAMP (classiquement `html` ou `www`). 
 
+#### Adaptation de la configuration d'accès à la BDD pour le site retrogame'in
+1. Importez le script `database/retrogamein.sql` dans votre SGBD MySQL local. Ce script crée la base de données, l'utilisateur qui sera utilisé par le driver du site web, les tables et importe les données nécessaires.
+2. Dans VSCode : 
+  1. Adaptez la valeur du serveur MySQL auquel on effectue la connexion dans la variable `$_ENV["host"]` du fichier `site/retrogamein/BDD/infosConnexionBDD.inc.php`. Sur un serveur local, elle est classiquement à "localhost".
+  2. Adaptez la valeur du port d'écoute de votre serveur MySQL dans la variable `$_ENV["port"]` du fichier `site/BDD/infosConnexionBDD.inc.php`. Classiquement 3306 ou 3307.
+
+
+### Préparation de l'environnement de dev : Installation des extensions recommandées pour ce dépôt
+
+Pour faciliter le développement et la maintenance de ce projet, nous recommandons l'installation de certaines extensions dans Visual Studio Code. Ces extensions incluent :
+
+- **PHP Intelephense** (`bmewburn.vscode-intelephense-client`) : Fournit des fonctionnalités avancées pour le développement PHP, telles que l'autocomplétion, la vérification de syntaxe, et la navigation dans le code.
+- **MySQL** (`cweijan.vscode-mysql-client2`) : Permet de gérer et d'interagir avec vos bases de données MySQL directement depuis VSCode.
+- **Docker** (`ms-azuretools.vscode-docker`) : Facilite la gestion des conteneurs Docker, vous permettant de construire, gérer et déboguer vos conteneurs directement depuis l'éditeur.
+- **PHP Debug** (`felixfbecker.php-debug`) : Offre des capacités de débogage pour les scripts PHP, vous permettant de définir des points d'arrêt, de surveiller les variables, et de suivre l'exécution du code.
+- **CodeMetrics** (`kisstkondoros.vscode-codemetrics`) : Fournit des métriques de complexité du code pour vous aider à identifier les zones du code qui pourraient nécessiter une refactorisation.
+- **Prettier** (`esbenp.prettier-vscode`) : Un formateur de code qui assure une mise en forme cohérente de votre code.
+- **PHP DocBlocker** (`neilbrayfield.php-docblocker`) : Aide à générer des blocs de documentation PHPDoc pour vos fonctions et classes.
+- **SonarLint** (`SonarSource.sonarlint-vscode`) : Analyse statique du code pour détecter les erreurs et les mauvaises pratiques.
+- **Git History** (`donjayamanne.githistory`) : Permet de visualiser et de naviguer dans l'historique des commits Git.
+
+Pour installer les extensions recommandées, allez dans le menu "Extensions" de VSCode, tapez `@recommended` dans la barre de recherche, et cliquez sur le symbole de téléchargement (nuage avec flèche) à côté des extensions listées. Ces outils vous aideront à écrire du code plus efficacement, à déboguer plus facilement, et à gérer vos conteneurs Docker directement depuis l'éditeur.
