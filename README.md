@@ -1,5 +1,5 @@
-# Site de découverte du PHP en BTS SIO
-site dynamique d'exemple utilisé en SIO1-B1-web
+# Sites de découverte du PHP en BTS SIO1
+site dynamique d'exemple utilisé en SIO1-B1-web (retrogame'in) et site d'entrainement au PHP
 > **Note :** Dernière MAJ 09/2024 (version simplifiée)
 
 ## Configuration du site sur un serveur
