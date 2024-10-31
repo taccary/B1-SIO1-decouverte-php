@@ -40,7 +40,7 @@ Dans le terminal de VSCode, tapez les commandes suivantes (avec les valeurs corr
    git config --global user.email "votre.email@example.com"
 
 #### Clonage du dépot
-1. Depuis VSCode, clonez votre dépot Github dans un sous-repertoire retrogaming du dossier web de votre LAMP (classiquement `html` ou `www`). 
+1. Depuis VSCode, clonez votre dépot Github dans un sous-repertoire `php-decouverte` du dossier web de votre LAMP (classiquement `html` ou `www`). 
 3. Importez le script `database/retrogamein.sql` dans votre SGBD MySQL local. Ce script crée la base de données, l'utilisateur du driver, les tables et importe les données nécessaires.
 4. Dans VSCode : 
   1. Adaptez la valeur du serveur MySQL auquel on effectue la connexion dans la variable `$_ENV["host"]` du fichier `site/BDD/infosConnexionBDD.inc.php`. Sur un serveur local, elle est classiquement à "localhost".
