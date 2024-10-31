@@ -49,7 +49,7 @@ Pour toute assistance supplémentaire, consultez la documentation appropriée po
   2. Adaptez la valeur du port d'écoute de votre serveur MySQL dans la variable `$_ENV["port"]` du fichier `site/BDD/infosConnexionBDD.inc.php`. Classiquement 3306 ou 3307.
 
 
-### Préparation de l'environnement de dev : Installation des extensions recommandées pour ce dépôt
+## Préparation de l'environnement de dev : Installation des extensions recommandées pour ce dépôt
 
 Pour faciliter le développement et la maintenance de ce projet, nous recommandons l'installation de certaines extensions dans Visual Studio Code. Ces extensions incluent :
 
