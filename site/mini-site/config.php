@@ -1,4 +1,11 @@
 <?php
+        /* Connexion à une base MySQL avec l'invocation de pilote.
+        * $dsn est le data source name, c'est le chemin vers la base de données. Il est composé de l'hôte, du nom de la base de données et du port sur lequel on se connecte à la base de données.
+        * $username est le nom d'utilisateur pour se connecter à la base de données.
+        * $password est le mot de passe de l'utilisateur pour se connecter à la base de données.
+        * $options est un tableau d'options pour la connexion. Ici on précise qu'on veut utiliser le jeu de caractères UTF-8.
+        */
+
         $_ENV["username"] = "retrogamein-web"; // utilisateur de la base de données
         $_ENV["password"] = "p@ssw0rd"; // mot de passe de l'utilisateur de la base de données
         $_ENV["host"] = "db"; // hôte de la base de données
