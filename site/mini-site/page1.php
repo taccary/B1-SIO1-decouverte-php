@@ -23,7 +23,8 @@
     </nav>
     <div class="container">
         <h1 class="mt-5">Affichage des jeux (requete simple)</h1>
-        <p class="lead">Cette page affiche des informations des jeux stockés dans la base de données. Les données sont récupérées par PHP sous la forme d'un tableau php (array). Cet ensemble de données est ensuite parcouru en PHP et affiché sous la forme d'un tableau HTML.</p>
+        <p class="lead">Cette page affiche des informations des jeux stockés dans la base de données. </p>
+        <p>Les données sont récupérées par PHP sous la forme d'un tableau php (array). Cet ensemble de données est ensuite parcouru en PHP et affiché sous la forme d'un tableau HTML.</p>
 
         <!-- Récupération des jeux dans la base de données -->
         <?php

@@ -22,8 +22,8 @@
         </div>
     </nav>
     <div class="container">
-        <h1 class="mt-5">Affichage des avis avec les infos des jeux et membres (requete avec jointure)</h1>
-        <p class="lead">Cette page affiche des informations sur les avis des membres. Pour chaque avis, on affiche le nom du jeu, la date et le commentaire.<br>
+        <h1 class="mt-5">Affichage complet des avis (requete avec jointure)</h1>
+        <p class="lead">Cette page affiche des informations sur les avis des membres.</p><p> Pour chaque avis, on affiche le nom du jeu, la date et le commentaire.<br>
         On filtre les avis par membre en utilisant une liste déroulante alimentée par une requête SQL.<br>
         On utilise une requête SQL avec jointure pour récupérer les informations des jeux et des membres liées aux avis.</p>
 
