@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1</title>
+    <title>Les avis</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -27,22 +27,24 @@
         On filtre les avis par membre en utilisant une liste déroulante alimentée par une requête SQL.<br>
         On utilise une requête SQL avec jointure pour récupérer les informations des jeux et des membres liées aux avis.</p>
 
+        <!-- Récupération des id et nom des membres depuis la base de données -->
+        <?php
+            $requete= "SELECT idMembre, nomMembre FROM membre ORDER BY nomMembre";
+            $query = $connexion->prepare($requete);
+            $query->execute();
+            $lesMembres = $query->fetchAll(PDO::FETCH_ASSOC);
+        ?> 
         <!-- liste des membres sous forme de liste déroulante -->
         <form method="post" action="page2.php">
-            <div class="form-group
             <label for="membre">Membre :</label>
-            <select class="form-control" id="membre" name="membre">
+            <select id="membre" name="membre">
                 <?php
-                    $requete= "SELECT idMembre, nomMembre FROM membre ORDER BY nomMembre";
-                    $query = $connexion->prepare($requete);
-                    $query->execute();
-                    $lesMembres = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($lesMembres as $unMembre) {
                         echo '<option value="' . $unMembre['idMembre'] . '">' . $unMembre['nomMembre'] . '</option>';
                     }
                 ?>
             </select>
-            <button type="submit" class="btn btn-primary mt-2">Afficher les avis du membre</button>
+            <button type="submit">Afficher les avis du membre</button>
         </form>
 
 
@@ -52,7 +54,7 @@
             $idMembre = $_POST['membre'];
             $requete= "SELECT * FROM avis INNER JOIN membre ON avis.idMembre=membre.idMembre INNER JOIN jeu ON avis.idJeu=jeu.idJeu WHERE avis.idMembre = :id ORDER BY avis.date DESC";
             $query = $connexion->prepare($requete);
-            $query->bindParam(':id', $idMembre);
+            $query->bindValue(':id', $idMembre);
             $query->execute();
             $lesAvis = $query->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -68,13 +70,15 @@
             <?php
             foreach ($lesAvis as $unAvis) {
                 echo '<li class="list-group-item">';
-                echo '<h5>' . $unAvis['date'] . '('.$unAvis['nomMembre'].')</h5>';
-                echo '<p>' . $unAvis['nom'] . '</p>';
-                echo '<p><strong>date : </strong>' . $unAvis['commentaire'] . '</p>';
+                echo '<h5>'. $unAvis['nom'] .'</h5>';
+                echo '<p>' . $unAvis['date'] . ' ('.$unAvis['nomMembre'].')</p>';
+                echo '<p><strong>Avis : </strong>' . $unAvis['commentaire'] . '</p>';
+                echo '</li>';
             }
             ?> 
-        </ul>  
-        
+        </ul>
+
+        <br>
         <!-- morceau de code pour afficher les explications -->
         <?php include 'explications/explainPage2.php'; ?>
 
