@@ -66,17 +66,14 @@
             $lesAvis = $query->fetchAll(PDO::FETCH_ASSOC);
         }
         ?>
+        <br>
         <!-- Affichage des avis sous forme d'une liste à puce -->
-        <ul class="list-group mt-5">
-            <?php
-            foreach ($lesAvis as $unAvis) {
-                echo '<li class="list-group-item">';
-                echo '<h5>'. $unAvis['nom'] .'</h5>';
-                echo '<p>' . $unAvis['date'] . ' ('.$unAvis['nomMembre'].')</p>';
-                echo '<p><strong>Avis : </strong>' . $unAvis['commentaire'] . '</p>';
-                echo '</li>';
-            }
-            ?> 
+        <ul>
+            <?php foreach ($lesAvis as $unAvis): ?>
+                <li>
+                    <mark><?= $unAvis['nom'] ?></mark> : <?= $unAvis['commentaire']; ?> (<?= $unAvis['date'] ?>)
+                </li>
+            <?php endforeach; ?>
         </ul>
 
         <br>

@@ -1,8 +1,9 @@
 services:
   php-apache-environment:
-    container_name: php8.1-apache-mdl
-    image: php:8.1-rc-apache
-    command: bash -c "docker-php-ext-install pdo pdo_mysql && apache2-foreground" #commandes à executer 
+    container_name: SWEB-apache-php8.1
+    build:
+        context: .
+        dockerfile: Dockerfile
     depends_on:
         - db
     volumes:
@@ -11,7 +12,7 @@ services:
         - 8000:80
   
   db:
-    container_name: db
+    container_name: SBDD-mysql
     image: mysql:latest
     environment: #infos d'initialisation de la BDD
         MYSQL_ROOT_PASSWORD: root
@@ -30,7 +31,7 @@ services:
     ports:
         - '8080:80'
     environment:
-        PMA_HOST: db
+        PMA_HOST: SBDD-mysql
         PMA_PORT: 3306
     depends_on:
         - db

@@ -172,19 +172,24 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="code-column"><code>foreach ($lesAvis as $unAvis) {</code></td>
-                            <td>Cette ligne parcourt le tableau $lesAvis et pour chaque avis, le stocke dans la variable $unAvis. Elle marque le début de la boucle foreach qui va traiter les éléments du tableau $lesAvis un par un.<br>
-                            Chacun de ces éléments est un tableau associatif de <?= count($lesAvis[0]) ?> cases contenant les informations issues de la jointure des 3 tables avis, membre et jeu (commentaire, date, nom, prixMoyen, ...).</td>
+                            <td class="code-column"><code>&lt;?php <br>foreach ($lesAvis as $unAvis) <br> ?&gt;{</code></td>
+                            <td>Ce code ouvre une boucle foreach qui parcoure le tableau $lesAvis et pour chaque avis, le stocke dans la variable $unAvis. <br>
+                            Cette variable est un tableau associatif de <?= count($lesAvis[0]) ?> cases contenant les informations issues de la jointure des 3 tables avis, membre et jeu (commentaire, date, nom, prixMoyen, ...).<br>Le code php est ensuite fermé par la balise de fermeture ?&gt; pour repasser en mode HTML.
+                        </td>
                         </td>
                         </tr>
                         <tr>
-                            <td class="code-column"><code>echo '&lt;li class="list-group-item"&gt;';</code><br><code>echo '&lt;h5&gt;' . $unAvis['nom'].'&lt;/h5&gt;';</code><br><code>echo '&lt;p&gt;' . $unAvis['date'] . ' ('.$unAvis['nomMembre'].') &lt;/p&gt;';</code><br><code>echo '&lt;p&gt;&lt;strong&gt;Avis : &lt;/strong&gt;' . $unAvis['commentaire'] . '&lt;/p&gt;';</code><br>
-                            <code>echo '&lt;/li&gt;';</code></td>
-                            <td>Ces 5 lignes de code affichent les informations de chaque avis. La première et la dernière ligne servent à créer un élément de liste à puce.<br> Les 3 lignes intermédiaires affichent la date de l'avis, le nom du membre (mis en forme avec des parenthèses), le nom du jeu et le commentaire de l'avis.</td>
+                            <td class="code-column"><code>&lt;li><br>
+                            &lt;mark><mark>&lt;?= $unAvis['nom'] ?></mark>&lt;/mark> : <mark>&lt;?= $unAvis['commentaire']; ?></mark> (<mark>&lt;?= $unAvis['date'] ?> ?></mark>)<br>
+                            &lt;/li></code></td>
+                            <td>Ces 3 lignes de code affichent les informations de chaque avis. La première et la dernière ligne servent à créer un élément de liste à puce.<br> La ligne intermédiaire affiche le nom du jeu, le commentaire de l'avis et la date de l'avis (mise en forme avec des parenthèses).<br>
+                            Cette partie utilise une syntaxe raccourcie pour afficher les valeurs des variables PHP dans le code HTML. Les balises <code>&lt;?=</code> sont équivalentes à <code>&lt;?php echo</code>.<br> Ce code est un mélange de HTML et de PHP (en <mark>surlignage</mark> ici).
+                        </td>
                         </tr>
                         <tr>
-                            <td class="code-column"><code>}</code></td>
-                            <td>Cette ligne marque la fin de la boucle foreach.</td>
+                            <td class="code-column"><code>&lt;?php<br>}<br>&lt;?></code></td>
+                            <td>Ce code marque la fin de la boucle foreach. Il ferme la balise d'ouverture <code>&lt;?php</code> et ouvre la balise de fermeture <code>&lt;?php</code> pour repasser en mode HTML.
+                            </td>
                         </tr>
                     </tbody>
                 </table>
