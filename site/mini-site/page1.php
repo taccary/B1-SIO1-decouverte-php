@@ -29,7 +29,7 @@
 
         <!-- Récupération des jeux dans la base de données -->
         <?php
-            $requete= "SELECT nom, console, prixMoyen FROM jeu WHERE prixMoyen < 10 ORDER BY nom"; // requête SQL à faire évoluer pour récupérer les informations de console en plus
+            $requete= "SELECT nom, console, prixMoyen FROM jeu ORDER BY nom"; // requête SQL à faire évoluer pour récupérer les informations de console en plus
             $query = $connexion->prepare($requete);
             $query->execute();
             // on récupère le résultat sous forme de tableau php
