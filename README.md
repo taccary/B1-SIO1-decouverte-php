@@ -42,9 +42,9 @@ Pour toute assistance supplémentaire, consultez la documentation appropriée po
 
 #### Adaptation de la configuration d'accès à la BDD pour le site retrogame'in
 1. Importez le script `database/retrogamein.sql` dans votre SGBD MySQL local. Ce script crée la base de données, l'utilisateur qui sera utilisé par le driver du site web, les tables et importe les données nécessaires.
-2. Dans VSCode : 
-  1. Adaptez la valeur du serveur MySQL auquel on effectue la connexion dans la variable `$_ENV["host"]` du fichier `site/retrogamein/BDD/infosConnexionBDD.inc.php`. Sur un serveur local, elle est classiquement à "localhost".
-  2. Adaptez la valeur du port d'écoute de votre serveur MySQL dans la variable `$_ENV["port"]` du fichier `site/BDD/infosConnexionBDD.inc.php`. Classiquement 3306 ou 3307.
+2. Dans VSCode, dans les fichiers de config des sites `mini-site` et `retrogamein` : `site/retrogamein/BDD/infosConnexionBDD.inc.php` et `site/mini-site/config.php` 
+  1. Adaptez la valeur du serveur MySQL auquel on effectue la connexion dans la variable `$_ENV["host"]`. Sur un serveur local, elle est classiquement à "localhost".
+  2. Adaptez la valeur du port d'écoute de votre serveur MySQL dans la variable `$_ENV["port"]`. Classiquement 3306 ou 3307.
 
 
 ## Préparation de l'environnement de dev : Installation des extensions recommandées pour ce dépôt
