@@ -180,7 +180,7 @@
                         </tr>
                         <tr>
                             <td class="code-column"><code>&lt;li><br>
-                            &lt;mark><mark>&lt;?= $unAvis['nom'] ?></mark>&lt;/mark> : <mark>&lt;?= $unAvis['commentaire']; ?></mark> (<mark>&lt;?= $unAvis['date'] ?> ?></mark>)<br>
+                            &lt;strong><mark>&lt;?= $unAvis['nom'] ?></mark>&lt;/strong> : <mark>&lt;?= $unAvis['commentaire']; ?></mark> (<mark>&lt;?= $unAvis['date'] ?> ?></mark>)<br>
                             &lt;/li></code></td>
                             <td>Ces 3 lignes de code affichent les informations de chaque avis. La première et la dernière ligne servent à créer un élément de liste à puce.<br> La ligne intermédiaire affiche le nom du jeu, le commentaire de l'avis et la date de l'avis (mise en forme avec des parenthèses).<br>
                             Cette partie utilise une syntaxe raccourcie pour afficher les valeurs des variables PHP dans le code HTML. Les balises <code>&lt;?=</code> sont équivalentes à <code>&lt;?php echo</code>.<br> Ce code est un mélange de HTML et de PHP (en <mark>surlignage</mark> ici).

@@ -71,7 +71,7 @@
         <ul>
             <?php foreach ($lesAvis as $unAvis): ?>
                 <li>
-                    <mark><?= $unAvis['nom'] ?></mark> : <?= $unAvis['commentaire']; ?> (<?= $unAvis['date'] ?>)
+                    <strong><?= $unAvis['nom'] ?></strong> : <?= $unAvis['commentaire']; ?> (<?= $unAvis['date'] ?>)
                 </li>
             <?php endforeach; ?>
         </ul>
