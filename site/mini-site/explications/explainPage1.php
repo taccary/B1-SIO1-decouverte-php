@@ -1,6 +1,6 @@
 <!-- Bouton pour afficher la fenêtre modale -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#explicationModal">
-    Afficher les explications
+    Explications du code
 </button>
 
 <!-- Modal -->
