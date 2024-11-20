@@ -59,7 +59,7 @@
 		<div class="row g-0">
 			<div class="col-md-4">
 				<!-- Si le jeu n’a pas d’image, afficher l'image pages/jeux/photos/imageNotFound.png avec un texte "pas d’image pour ce jeu" -->
-				<img src="pages/jeux/photos/<?= $leJeu['photoJeu'] ?>" class="img-fluid rounded-start" alt="image du jeu <?= $leJeu['nom'] ?>">
+				<img src="pagesDynamiques/jeux/photos/<?= $leJeu['photoJeu'] ?>" class="img-fluid rounded-start" alt="image du jeu <?= $leJeu['nom'] ?>">
 			</div>
 			<div class="col-md-5">
 				<div class="card-body">
